@@ -1,155 +1,135 @@
-**AI Email Phishing Detector**
+# 🚨 AI Email Phishing Detector
 
 
+An **AI-powered desktop application** built with **Python**, **Tkinter**, and **Machine Learning** to detect phishing emails automatically from your Gmail inbox. The app fetches new emails in real-time, analyzes them, and classifies them as **Safe** or **Phishing**.
 
-An AI-powered desktop application built using Python, Tkinter, and Machine Learning to automatically detect phishing emails from a Gmail inbox. The application connects to your Gmail account via IMAP, fetches new emails, analyzes their content, and classifies them as Safe or Phishing in real time.
+---
 
+## ✨ Features
 
+* Securely connects to Gmail using **IMAP** with an **App Password**
+* Fetches emails in **real-time** and updates every **15 seconds**
+* Analyzes both **subject** and **body text** for phishing indicators
+* Uses a **Machine Learning model** (TF-IDF + Classifier) for predictions
+* Simple, clean, and **responsive Tkinter GUI**
+* **Color-coded results**:
 
-**Features**
+  * 🟢 **Green** = Safe
+  * 🔴 **Red** = Phishing
+  * 🟠 **Orange** = Error or Connection Issue
 
+---
 
+## 🛠 Requirements
 
-* Connects to Gmail using IMAP securely with an App Password.
-* Fetches emails in real time and updates every 15 seconds.
-* Analyzes both subject line and body text for phishing indicators.
-* Machine Learning model (trained with TF-IDF and a classifier) for accurate predictions.
-* Simple, clean, and responsive Tkinter-based GUI.
-* Color-coded results:
-* Green = Safe Email
-* Red = Phishing Email
-* Orange = Error or Connection Issue
-
-
-
-**Requirements**
-
-
-
-* Python: 3.8 or later
-* Gmail account with IMAP enabled
-* Google App Password (instead of main password for security)
+* Python 3.8 or later
+* Gmail account with **IMAP enabled**
+* Google **App Password**
 * Pre-trained model files:
-* models/phishing\_model.pkl
-* models/tfidf\_vectorizer.pkl
 
+  * `models/phishing_model.pkl`
+  * `models/tfidf_vectorizer.pkl`
 
+---
 
-**Installation**
+## 🚀 Installation
 
+### 1. Clone the Repository
 
+```bash
+git clone https://github.com/Jarrar-Hassan/AI-Email-Phishing-Detector.git
+cd AI-Email-Phishing-Detector
+```
 
-1. Clone the Repository
+### 2. Create a Virtual Environment
 
-   git clone https://github.com/Jarrar-Hassan/AI-Email-Phishing-Detector.git
-   cd AI-Email-Phishing-Detector
-   
-2. Create a Virtual Environment
+```bash
+python -m venv phishing-env
+```
 
+### 3. Activate the Environment
 
-   python -m venv phishing-env
+**Windows:**
 
+```bash
+phishing-env\Scripts\activate
+```
 
+**Linux/Mac:**
 
-**Activate the environment:**
+```bash
+source phishing-env/bin/activate
+```
 
+### 4. Install Dependencies
 
+```bash
+pip install -r requirements.txt
+```
 
-On Windows:
+---
 
-* phishing-env\\Scripts\\activate
-* 
+## 📧 Gmail Setup (IMAP & App Password)
 
+1. **Enable IMAP**: Gmail → Settings → Forwarding and POP/IMAP → Enable IMAP
+2. **Generate an App Password**: Google Account → Security → App Passwords → Select "Mail" → Copy 16-character password
+3. **Update Credentials** in `main.py`:
 
+```python
+EMAIL_ACCOUNT = "your-email@gmail.com"
+EMAIL_PASSWORD = "your-app-password"
+```
 
-On Linux/Mac:
+---
 
-* source phishing-env/bin/activate
+## ▶️ Run the Application
 
-* Install Dependencies
-  pip install -r requirements.txt
+```bash
+python main.py
+```
 
+The GUI will open and start fetching emails **received after the app started**, updating every **15 seconds**.
 
+---
 
-**Gmail Setup (IMAP \& App Password)**
+## 🧐 How It Works
 
+1. Connects to Gmail via IMAP
+2. Fetches **emails received after app startup**
+3. Cleans and preprocesses text (subject + body)
+4. Converts text into **TF-IDF features**
+5. ML model predicts:
 
+   * 🔴 Phishing
+   * 🟢 Safe
+6. Displays results in a **color-coded table** in the GUI
 
-* Log in to your Google Account.
-* Enable IMAP:
-* Go to Gmail Settings > Forwarding and POP/IMAP > Enable IMAP.
-* Generate an App Password:
-* Go to Google Account > Security > App Passwords.
-* Select Mail as the app and your device type.
-* Copy the generated 16-character password.
+---
 
+## 📁 Project Structure
 
-
-**Configuration**
-
-
-
-* Open main.py and update these lines with your Gmail credentials:
-* EMAIL\_ACCOUNT = "your-email@gmail.com"
-  EMAIL\_PASSWORD = "your-app-password"
-* Run the Application
-* Start the app by running:
-* python main.py
-
-
-
-The GUI will open and begin fetching your emails in real time. The list updates automatically every 15 seconds.
-
-
-
-**Working:**
-
-
-
-* The app connects to Gmail using IMAP.
-* Fetches emails received after the application started.
-* Cleans and preprocesses the subject and body text.
-* Converts the text into TF-IDF features.
-* Uses the Machine Learning model to predict if the email is Phishing or Safe.
-* Displays the results in a color-coded Treeview table.
-
-
-
-
-
-**Project Structure**
-
-
+```
 AI-Email-Phishing-Detector/
 │
-├── main.py                 # Main application script
+├── main.py                     # Main application script
 ├── models/
-│   ├── phishing\_model.pkl  # Trained ML model
-│   └── tfidf\_vectorizer.pkl # TF-IDF vectorizer
-├── requirements.txt         # Project dependencies
-└── README.md                # Documentation
+│   ├── phishing_model.pkl      # Trained ML model
+│   └── tfidf_vectorizer.pkl    # TF-IDF vectorizer
+├── requirements.txt            # Project dependencies
+└── README.md                   # Documentation
+```
 
+---
 
+## ⚠️ Common Issues & Fixes
 
-**Common Issues \& Fixes**
+* **Invalid Credentials**: Use App Password, not Gmail password
+* **IMAP Disabled**: Enable IMAP in Gmail settings
+* **App Freezes / Unresponsive**: First fetch may take time if inbox is large
 
+---
 
+## 👨‍💻 Developed by
 
-Invalid Credentials:
-
-* Ensure you are using the App Password, not your main Gmail password.
-
-IMAP Disabled:
-
-* Enable IMAP in Gmail settings.
-
-App Not Responding:
-
-* The first fetch may take time depending on your inbox size. Wait a few seconds.
-
-
-
-
-
-**Developed by Muhammad Jarrar Hassan**
-
+**Muhammad Jarrar Hassan**
+(https://github.com/Jarrar-Hassan)
