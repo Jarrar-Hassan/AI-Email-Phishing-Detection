@@ -1,1 +1,6 @@
 
+Dataset
+
+The Machine Learning models (phishing_model.pkl and tfidf_vectorizer.pkl) included in this project were trained on a curated email dataset. You do not need to download or provide a dataset to use the application, as the models are already trained and ready for inference.
+
+If you wish to retrain the models or improve them, you can use any suitable email dataset containing labeled phishing and safe emails.
