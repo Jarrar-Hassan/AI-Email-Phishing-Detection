@@ -1,0 +1,13 @@
+pandas
+numpy
+scikit-learn
+joblib
+transformers
+torch
+beautifulsoup4
+lxml
+imapclient
+pyzmail36
+PySide6
+pyinstaller
+dkimpy
