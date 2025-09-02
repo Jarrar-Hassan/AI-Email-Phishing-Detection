@@ -46,8 +46,8 @@ def clean_text(text):
 # ----------------------------
 # IMPORTANT: Use a Gmail "App Password" for security, not your main password.
 IMAP_SERVER = "imap.gmail.com"
-EMAIL_ACCOUNT = "byezon.123@gmail.com"
-EMAIL_PASSWORD = "fskq kled xwou qlhw"
+EMAIL_ACCOUNT = "123@gmail.com"
+EMAIL_PASSWORD = "" # place the app password here
 
 # Global variable to store the time the application started.
 # We will only fetch emails that arrived after this time.
@@ -226,3 +226,4 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = EmailCheckerApp(root)
     root.mainloop()
+
